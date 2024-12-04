@@ -41,5 +41,3 @@ class CategoryListView(ListView):
         category = get_object_or_404(Category.objects.active(), slug=slug)
         return category.articles.published()
 
-
-test
