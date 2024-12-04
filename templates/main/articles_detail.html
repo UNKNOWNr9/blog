@@ -1,0 +1,39 @@
+{% extends 'main/base.html' %}
+{% block header %}
+<!-- Page Header-->
+<header class="masthead" style="background-image: url({{ article.thumbnail.url }})">
+    <div class="container position-relative px-4 px-lg-5">
+        <div class="row gx-4 gx-lg-5 justify-content-center">
+            <div class="col-md-10 col-lg-8 col-xl-7">
+                <div class="site-heading">
+                    <h1>{{ article.title }}</h1>
+                    <span class="subheading">A Blog Theme by Start Bootstrap</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+{% endblock %}
+{% block main %}
+<div class="container px-4 px-lg-5">
+    <div class="row gx-4 gx-lg-5 justify-content-center">
+        <div class="col-md-10 col-lg-8 col-xl-7">
+            <!-- Post preview-->
+            <div class="post-preview">
+                <a>
+                    <h2 class="post-title">{{ article.title }}</h2>
+                    <img class="post-image" src="{{ article.thumbnail.url }}">
+                    <h3 class="post-subtitle">{{ article.description |linebreaks }}</h3>
+                </a>
+                <p class="post-metas">
+                    نویسنده :
+                    <a href="#!">ارشیا</a>
+                    {{ article.published }}
+                </p>
+            </div>
+            <!-- Divider-->
+            <hr class="my-4" />
+        </div>
+    </div>
+</div>
+{% endblock %}
