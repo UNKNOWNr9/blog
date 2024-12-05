@@ -13,7 +13,7 @@
                         </a>
                         <p class="post-metas">
                             نویسنده:
-                            <a href="#!">ارشیا</a>
+                            <a href="{% url 'author' obj.author%}">{{ obj.author.get_full_name }}</a>
                             در تاریخ:
                             {{ obj.published|date:"Y-m-d" }}
                         </p>

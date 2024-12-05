@@ -26,8 +26,9 @@
                     <h3 class="post-subtitle">{{ article.description |linebreaks }}</h3>
                 </a>
                 <p class="post-metas">
-                    نویسنده :
-                    <a href="#!">ارشیا</a>
+                    نوشته شده توسط :
+                    <a href="{% url 'author' object.author %}">{{ object.author.get_full_name }}</a>
+                    <a> در تاریخ</a>
                     {{ article.published }}
                 </p>
             </div>

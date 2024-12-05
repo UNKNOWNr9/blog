@@ -1,0 +1,33 @@
+{% extends 'main/base.html' %}
+
+{% block main %}
+<h3 class="text-center">پست‌های نویسنده: {{ author.get_full_name }}</h3>
+<div class="container">
+    {% for obj in articles %}
+        <div class="post-preview">
+            <a href="{% url 'articles_detail' obj.slug %}">
+                <h2 class="post-title">{{ obj.title }}</h2>
+                <h3 class="post-subtitle">{{ obj.description|truncatewords:20 }}</h3>
+            </a>
+            <p class="post-meta">تاریخ: {{ obj.published|date:"Y-m-d" }}</p>
+        </div>
+        <hr>
+    {% endfor %}
+
+    <!-- Pagination -->
+    {% if is_paginated %}
+        <div class="d-flex justify-content-center mb-4">
+            {% if page_obj.has_next %}
+                <a class="btn btn-primary text-uppercase"
+                   href="?page={{ page_obj.next_page_number }}"
+                   style="margin-left: 10px">→ بعدی</a>
+            {% endif %}
+            {% if page_obj.has_previous %}
+                <a class="btn btn-primary text-uppercase"
+                   href="?page={{ page_obj.previous_page_number }}"
+                   style="margin-right: 10px">قبلی ←</a>
+            {% endif %}
+        </div>
+    {% endif %}
+</div>
+{% endblock %}

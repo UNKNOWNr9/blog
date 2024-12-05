@@ -1,5 +1,6 @@
 from django.db import models
 from django.utils import timezone
+from django.contrib.auth.models import User
 
 
 #custom managers
@@ -36,6 +37,7 @@ class Article(models.Model):
         ('d', 'پیشنویس'),
         ('p', 'منتشر شده'),
     )
+    author = models.ForeignKey(User, null=True, on_delete=models.SET_NULL, related_name='articles', verbose_name='نویسنده')
     title = models.CharField(max_length=30, verbose_name='عنوان')
     slug = models.SlugField(max_length=30, unique=True, verbose_name='آدرس')
     category = models.ManyToManyField(Category, verbose_name='دسته بندی', related_name='articles')

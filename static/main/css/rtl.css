@@ -23,6 +23,7 @@ body{
   display: block;
   transition: .3s background-color;
   padding:0 24px;
+  white-space: nowrap;
 }
 
 .nav ul li a:hover {

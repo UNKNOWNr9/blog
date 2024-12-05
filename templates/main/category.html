@@ -12,7 +12,7 @@
                         </a>
                         <p class="post-metas">
                             نوشته شده توسط:
-                            <a href="#!">ارشیا</a> در تاریخ: {{ obj.published|date:"Y-m-d" }}
+                            <a href="{% url 'author' obj.author%}">{{ obj.author.get_full_name }}</a> در تاریخ: {{ obj.published|date:"Y-m-d" }}
                         </p>
                         <p class="post-metas">
                             دسته بندی:
@@ -30,15 +30,15 @@
     <!-- Pagination -->
 {% if is_paginated %}
     <div class="d-flex justify-content-center mb-4">
-        {% if page_obj.has_previous %}
-            <a class="btn btn-primary text-uppercase"
-               href="?page={{ page_obj.previous_page_number }}"
-               style="margin-right: 10px">قبلی ←</a>
-        {% endif %}
         {% if page_obj.has_next %}
             <a class="btn btn-primary text-uppercase"
                href="?page={{ page_obj.next_page_number }}"
                style="margin-left: 10px">→ بعدی</a>
+        {% endif %}
+        {% if page_obj.has_previous %}
+            <a class="btn btn-primary text-uppercase"
+               href="?page={{ page_obj.previous_page_number }}"
+               style="margin-right: 10px">قبلی ←</a>
         {% endif %}
     </div>
 {% endif %}
