@@ -1,6 +1,7 @@
 body{
     direction: rtl;
     text-align: right;
+    background-color: #fafafa !important;
 }
 
 .nav ul {

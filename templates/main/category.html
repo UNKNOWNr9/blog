@@ -12,7 +12,9 @@
                         </a>
                         <p class="post-metas">
                             نوشته شده توسط:
-                            <a href="{% url 'author' obj.author%}">{{ obj.author.get_full_name }}</a> در تاریخ: {{ obj.published|date:"Y-m-d" }}
+                            <a href="{% url 'author' obj.author.username %}">{{ obj.author.get_full_name }}</a>
+
+                            در تاریخ: {{ obj.published|date:"Y-m-d" }}
                         </p>
                         <p class="post-metas">
                             دسته بندی:

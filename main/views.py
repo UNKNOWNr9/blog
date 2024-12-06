@@ -1,6 +1,5 @@
 from django.contrib.auth import admin
 from django.shortcuts import render, get_object_or_404
-from django.core.paginator import Paginator
 from .models import Article, Category
 from django.views.generic import ListView, DetailView
 from django.contrib.auth.models import User
@@ -44,18 +43,16 @@ class CategoryListView(ListView):
         return category.articles.published()
 
 
-from django.views.generic import ListView
-from django.contrib.auth.models import User
-from .models import Article
-
-
-class AuthorPostListView(ListView):
-    model = Article
-    template_name = 'main/author_list.html'  # Your template file for displaying the author's posts
-    context_object_name = 'articles'
-    paginate_by = 3  # For pagination
+class AuthorList(ListView):
+    paginate_by = 2
+    template_name = 'main/author_list.html'
 
     def get_queryset(self):
-        # Get the author by username
-        username = self.kwargs['username']
-        return Article.objects.filter(author__username=username).order_by('-published')
+        username = self.kwargs.get('username')
+        self.author = get_object_or_404(User, username=username)
+        return self.author.articles.published()
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['author'] = self.author
+        return context
