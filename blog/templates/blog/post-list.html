@@ -20,7 +20,7 @@
                 <div class="col-md-4">
                     <div class="blog-wrap">
                         <div class="blog-image">
-                            <img alt="" src="{{ obj.image.url }}" title="Jack" class="img-responsive post-image" />
+                            <img alt="{{ obj.title }}" src="{{ obj.image.url }}" title="Jack" class="img-responsive post-image" />
                         </div>
                         <div class="blog-data">
                             <div class="blog-meta">
@@ -37,7 +37,7 @@
                             <div class="blog-content">
                                 {{ obj.body | truncatewords:30 }}
                             </div>
-                            <a class="btn btn-default btn-xl btn-normal margin-top-20" href="#">بیشتر بخوانید</a>
+                            <a class="btn btn-default btn-xl btn-normal margin-top-20" href="{% url 'post-detail' obj.slug %}">بیشتر بخوانید</a>
                         </div>
                     </div>
                 </div>

@@ -1637,8 +1637,7 @@ a.comment::before {
 	width: 50%;
 }
 .post-image {
-	width: 100%;
-	height: 300px;
+;
 }
 .pagination {
     display: flex;

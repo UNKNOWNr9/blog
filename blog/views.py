@@ -18,3 +18,5 @@ class PostListView(ListView):
 
 class PostDetailView(DetailView):
     queryset = Post.objects.filter(status='PB')
+    template_name = 'blog/post-detail.html'
+    context_object_name = 'obj'

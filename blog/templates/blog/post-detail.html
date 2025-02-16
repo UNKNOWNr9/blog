@@ -1,0 +1,26 @@
+{% extends 'blog/parent/base.html' %}
+{% load static %}
+{% block main_content %}
+    <!-- Who we are -->
+<section>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="col-inner">
+                    <div class="section-sub-title">
+                        <h3 class="under-line">{{ obj.title }}</h3>
+                    </div>
+                    <p>
+                      {{ obj.body }}
+                    </p>
+                </div>
+            </div>
+            <div class="col-md-6 hidden-sm hidden-xs media">
+               <img alt="{{ obj }}" src="{{ obj.image.url }}" class="img-responsive post-image" />
+            </div>
+        </div>
+    </div>
+</section>
+<!-- About Section End-->
+{% endblock %}
