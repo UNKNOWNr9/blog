@@ -1,0 +1,146 @@
+{% load static %}
+<!DOCTYPE html>
+<html dir="rtl" lang="en">
+	<head>
+		<!-- TITLE-->
+		<title>قالب شرکتی تک صفحه ای | نت کپی</title>
+		<!-- FAV ICON -->
+		<link rel="shortcut icon" href="{% static 'images/favicon.ico' %}" type="text/css" />
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="description" content="Responsive one page HTML template">
+		<meta name="description" content="Responsive one page HTML template">
+		<meta name="author" content="Netcopy">
+		<!-- BOOTSTRAP CSS -->
+		<link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" type="text/css" />
+		<!-- FONTAWESOME CSS -->
+		<link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}" type="text/css" />
+		<!-- OWL CAROUSEL CSS -->
+		<link rel="stylesheet" href="{% static 'css/owl.carousel.min.css' %}" type="text/css" />
+		<!-- ANIMATE CSS -->
+		<link rel="stylesheet" href="{% static 'css/animate.min.css' %}" type="text/css" />
+		<!-- LIGHTBOX CSS -->
+		<link rel="stylesheet" href="{% static 'css/lightbox.min.css' %}" type="text/css" />
+		<!-- YTPLAYER CSS -->
+		<link rel="stylesheet" href="{% static 'css/mb.YTPlayer.min.css' %}" type="text/css" />
+		<!-- FLATICON CSS -->
+		<link rel="stylesheet" href="{% static 'css/flaticon.css' %}" type="text/css" />
+		<!-- BOOTSTRAP VALIDATOR CSS -->
+		<link rel="stylesheet" href="{% static 'css/validator.min.css' %}" type="text/css" />
+		<!-- THEME STYLE CSS -->
+		<link rel="stylesheet" href="{% static 'css/style.css' %}" type="text/css" />
+		<!-- Latest IE rendering engine & Chrome Frame Meta Tags -->
+		<!--[if IE]>
+		<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+		<![endif]-->
+	</head>
+	<body data-spy="scroll" data-offset="62">
+
+		<!-- Page Loader -->
+		<div class="page-loader"></div>
+
+		<div class="main-wrap">
+
+			<!-- Fixed Navbar -->
+			<nav class="navbar navbar-sticky navbar-transparent">
+				<!-- Navbar Transparent Class: navbar-transparent -->
+				<div class="container">
+					<!-- Brand and toggle get grouped for better mobile display -->
+					<div class="navbar-header">
+						<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						</button>
+						<a class="navbar-brand primary-logo" href="#"><img class="img-responsive" src="{% static 'images/logo-theme.png' %}" alt="Logo"/></a>
+						<a class="navbar-brand sticky-logo" href="#"><img class="img-responsive" src="{% static 'images/logo.png' %}" alt="Logo" /></a>
+					</div>
+					<!-- Collect the nav links, forms, and other content for toggling -->
+					<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+						<ul class="nav navbar-nav pull-right">
+							<li class="active"><a href="#home">خانه</a></li>
+							<li><a href="#about">درباره ما</a></li>
+							<li><a href="#service">سرویس ها</a></li>
+							<li><a href="#portfolio">نمونه کار ها</a></li>
+							<li><a href="#plans">قیمت ها</a></li>
+							<li><a href="#blog">وبلاگ</a></li>
+							<li><a href="#contact">تماس با ما</a></li>
+						</ul>
+					</div>
+					<!-- /.navbar-collapse -->
+				</div>
+				<!-- /.container-fluid -->
+			</nav>
+			<!-- Theme Header Start -->
+			<header id="home" class="full-height bg-img" data-src="{% static 'images/bg/main-demo.jpg' %}">
+				<div class="container">
+					<div class="row">
+						<div class="col-sm-8 col-sm-offset-2 text-center">
+							<div class="header-content">
+								<div class="header-content-inner">
+									<div class="section-title">
+										<h1 class="section-title-divider animated zoomIn">طرح <span class="primary-color">مورد علاقه</span> شما</h1>
+										<p>راه اندازی بوت استرپ می تواند به شما در ایجاد وب سایت های بهتر با استفاده از چارچوب CSS بوت استرپ کمک کند! فقط قالب خود را بارگیری کرده و بدون هیچ رشته ای شروع به کار کنید!</p>
+									</div>
+									<a class="btn btn-default btn-xl" href="#about">اطلاعات بیشتر</a> <!-- THEME DEFAULT BUTTON -->
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</header>
+			<!-- Theme Header End -->
+            {% block main_content %}
+
+            {% endblock %}
+			<!-- Footer Start -->
+			<footer class="footer padding-tb-30 primary-section-bg section-typo-white">
+				<div class="container">
+					<div class="row text-center margin-bottom-20">
+						<div class="col-md-12">
+							<ul class="nav navbar-nav footer-social">
+								<li><a href="#" class="social-facebook"><i class="fa fa-facebook"></i></a></li>
+								<li><a href="#" class="social-twitter"><i class="fa fa-twitter"></i></a></li>
+								<li><a href="#" class="social-pinterest"><i class="fa fa-pinterest-p"></i></a></li>
+								<li><a href="#" class="social-instagram"><i class="fa fa-instagram"></i></a></li>
+								<li><a href="#" class="social-google-plus"><i class="fa fa-google-plus"></i></a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<a href="#" class="back-to-top" id="back-to-top"><i class="fa fa-angle-up"></i></a>
+			</footer>
+			<!-- Footer End -->
+
+		</div><!-- .main-wrap -->
+
+
+		<!-- JQUERY LIBRARY -->
+		<script src="{% static 'js/jquery.min.js' %}"></script>
+		<!-- BOOTSTRAP JS -->
+		<script src="{% static 'js/bootstrap.min.js' %}"></script>
+		<!-- OWL CAROUSEL JS -->
+		<script src="{% static 'js/owl.carousel.min.js' %}"></script>
+		<!-- APPEARS JS -->
+		<script src="{% static 'js/jquery.appear.js' %}"></script>
+		<!-- EASING JS -->
+		<script src="{% static 'js/jquery.easing.min.js' %}"></script>
+		<!-- STELLAR JS -->
+		<script src="{% static 'js/jquery.stellar.min.js' %}"></script>
+		<!-- COUNTER JS -->
+		<script src="{% static 'js/jquery.counterup.min.js' %}"></script>
+		<!-- ISOTOPE JS -->
+		<script src="{% static 'js/isotope.pkgd.min.js' %}"></script>
+		<!-- LIGHTBOX JS -->
+		<script src="{% static 'js/lightbox.min.js' %}"></script>
+		<!-- YTPLAYER JS -->
+		<script src="{% static 'js/jquery.mb.YTPlayer.min.js' %}"></script>
+		<!-- BOOTSTRAP VALIDATOR JS -->
+		<script src="{% static 'js/validator.min.js' %}"></script>
+		<!-- THEME JS -->
+		<script src="{% static 'js/theme.js' %}"></script>
+		<!-- GOOGLE MAP INIT JS -->
+		<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBtkY02zM_XV3XtSzJbNwJdiA2iuNmP_bI&callback=initStarkContact" type="text/javascript"></script>
+	</body>
+</html>
+
