@@ -1,5 +1,6 @@
 {% extends 'blog/parent/base.html' %}
 {% load static %}
+{% block title-meta %}پست ها{% endblock %}
 {% block main_content %}
 <!-- Blog Section Start -->
 <section class="padding-bottom-50" id="blog">
@@ -19,7 +20,7 @@
             {% for obj in object_list %}
                 <div class="col-md-4">
                     <div class="blog-wrap">
-                        <div class="blog-image">
+                        <div class="image-container">
                             <img alt="{{ obj.title }}" src="{{ obj.image.url }}" title="Jack" class="img-responsive post-image" />
                         </div>
                         <div class="blog-data">
@@ -48,10 +49,10 @@
     {% block pagination %}
         {% if is_paginated %}
             <div class="pagination">
-                {% if page_obj.has_next_page %}
+                {% if page_obj.has_next %}
                     <a class="pagination-btn btn btn-default btn-xl btn-normal" href="?page={{ page_obj.next_page_number }}">بعدی</a>
                 {% endif %}
-                {% if page_obj.has_previous_page %}
+                {% if page_obj.has_previous%}
                     <a class="pagination-btn btn btn-default btn-xl btn-normal" href="?page={{ page_obj.previous_page_number  }}">قبلی</a>
                 {% endif %}
             </div>

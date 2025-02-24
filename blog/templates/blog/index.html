@@ -1,5 +1,20 @@
 {% extends 'blog/parent/base.html' %}
 {% load static %}
+{% block title-meta %}خانه{% endblock %}
+{% block navbar %}
+<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+    <ul class="nav navbar-nav pull-right">
+        <li><a href="#">ورود / ثبت نام</a></li>
+        <li><a href="#home">خانه</a></li>
+        <li><a href="#about">درباره ما</a></li>
+        <li><a href="#service">سرویس ها</a></li>
+        <li><a href="#portfolio">نمونه کار ها</a></li>
+        <li><a href="#plans">قیمت ها</a></li>
+        <li><a href="#blog">وبلاگ</a></li>
+        <li><a href="#contact">تماس با ما</a></li>
+    </ul>
+</div>
+{% endblock %}
 {% block main_content %}
         <!-- About Section -->
         <section id="about" class="section-parallax section-typo-white" data-src="images/bg/3.jpg" data-stellar-background-ratio="0.5">
@@ -29,7 +44,7 @@
                                 <h3 class="under-line">من کی هستیم</h3>
                             </div>
                             <p>
-                               ما کی هستیم ما یک تیم خلاق و پویا هستیم که با استفاده از جدیدترین تکنولوژی‌ها و طراحی‌های گرافیکی، خدماتی منحصر به فرد در صنعت چاپ ارائه می‌دهیم. هدف ما خلق تجربه‌های بصری جذاب و کاربردی است که نیازهای روزافزون کاربران را برآورده کند.
+                               از آنجاییکه به برنامه نویسی خیلی علاقه داشتم، بعد از دریافت مدرک کارشناسی کامپیوتر بصورت خودآموز شروع به برنامه نویسی و یادگیری در این خصوص کردم. بسیار مشتاق رشد و توسعه مهارت های خودم می باشم و برای این منظور بدنبال استفاده از تجربیات افرادی با مهارت های بالاتر هستم یک سال سابقه در شرکت زیتل به عنوان کارشناس نصب اینترنت tdlte و بعد از آن سابقه در شرکت یوتاپ تجارت ایندگان به مدیریت اقای اشکان آذرخش به عنوان مسئول فناوری کامپیوتر مشغول به کار هستم و تجربه کسب کردم. بسیار پرتلاش، خلاق و یادگیرنده هستم و فرصتی را برای رشد از دست نخواهم داد.
                             </p>
                         </div>
                         <div class="col-inner">
@@ -43,7 +58,6 @@
                                 <li>مشاوره و پشتیبانی فنی</li>
                             </ul>
                         </div>
-                        <a class="btn btn-default btn-xl btn-normal margin-top-20" href="#">بیشتر بخوانید</a> <!-- THEME DEFAULT BUTTON WITH NORMAL STYLE -->
                     </div>
                     <div class="col-md-6 hidden-sm hidden-xs media">
                         <img alt="" src="{% static 'images/about.png' %}" class="img-responsive" />
@@ -52,20 +66,6 @@
             </div>
         </section>
         <!-- About Section End-->
-        <!-- Support Section Start -->
-        <section class="section-parallax" data-src="images/bg/4.jpg" data-stellar-background-ratio="0.5">
-            <span class="overlay-section-bg black-section-bg"></span>
-            <div class="container section-typo-white">
-                <div class="row">
-                    <div class="col-sm-10 col-sm-offset-1 text-center">
-                        <h2 class="inline-content"><span>برای شروع با استارک آماده اید؟</span></h2>
-                        <!-- SECTION TITLE -->
-                        <a class="btn btn-default btn-xl btn-inline" href="#">آماده شدن</a>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- Support Section End -->
         <!-- Service Section Start -->
         <section class="padding-bottom-50" id="service">
             <div class="container text-center">
@@ -709,22 +709,23 @@
                     {% for obj in object_list %}
                         <div class="col-md-4">
                             <div class="blog-wrap">
-                                <div class="blog-image">
-                                    <img alt="" src="{{ obj.image.url }}" title="Jack" class="img-responsive post-image" />
+                                <div class="image-container">
+                                    <img alt="{{ obj.title }}" src="{{ obj.image.url }}" title="Jack" class="img-responsive post-image" />
                                 </div>
                                 <div class="blog-data">
                                     <div class="blog-meta">
                                         <ul class="list-inline">
                                             <li><a href="#" title="Author" class="author">{{ obj.author.get_full_name }}</a></li>
-                                            <li><a href="#" title="Date" class="date">{{ obj.published }}</a></li>
+                                            <li><a href="#" title="Date" class="date">{{ obj.publish }}</a></li>
                                         </ul>
                                     </div>
                                     <div class="blog-title">
-                                        <h3><a href="#" title="Title Here">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم </a></h3>
+                                        <h3><a href="{{ obj.get_absolute_url }}" title="Title Here">{{ obj.title }}</a></h3>
                                     </div>
                                     <div class="blog-content">
-                                        لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد 									</div>
-                                    <a class="btn btn-default btn-xl btn-normal margin-top-20" href="#">بیشتر بخوانید</a>
+                                        {{ obj.body | truncatewords:30 }}
+                                    </div>
+                                    <a class="btn btn-default btn-xl btn-normal margin-top-20" href="{% url 'post-detail' obj.slug %}">بیشتر بخوانید</a>
                                 </div>
                             </div>
                         </div>
@@ -743,7 +744,7 @@
                             <h2 class="section-title-divider primary-divider">تماس با ما</h2>
                             <!-- SECTION TITLE -->
                             <p>
-                                لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است
+                                برای ارتباط با ما، لطفاً از طریق فرم زیر یا اطلاعات تماس ذکر شده در این صفحه با ما در تماس باشید.
                             </p>
                         </div>
                     </div>
@@ -755,7 +756,7 @@
                             <div class="padding-tb-20">
                                 <p>
                                     ایران<br />
-                                    مشهد
+                                    تهران
                                 </p>
                             </div>
                         </div>
@@ -764,7 +765,7 @@
                         <div class="contact-mail">
                             <p class="contact-icons"><i class="fa fa-envelope-o primary-color"></i></p>
                             <div class="padding-tb-20">
-                                <p>admin@netcopy.ir</p>
+                                <p>arhsia21420@gmail.com</p>
                             </div>
                         </div>
                     </div>
@@ -773,8 +774,7 @@
                             <p class="contact-icons"><i class="fa fa-phone primary-color"></i></p>
                             <div class="padding-tb-20">
                                 <p>
-                                    +44 222 1234<br />
-                                    +44 222 2341
+                                    093746461310<br/>
                                 </p>
                             </div>
                         </div>
@@ -783,7 +783,7 @@
                 <div class="row text-center">
                     <div class="contact-form">
                         <p id="contact-status-msg" class="hide"></p>
-                        <form id="contact-form" class="contact-form" action="inc/function.php">
+                        <form id="contact-form" class="contact-form"> {% csrf_token %}
                             <div class="col-md-4 col-md-offset-2 padding-bottom-20">
                                 <div class="form-group">
                                     <input id="name" class="form-control" name="name" autocomplete="off" placeholder="نام" data-bv-field="name" type="text" />

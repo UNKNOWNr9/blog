@@ -3,7 +3,7 @@
 <html dir="rtl" lang="en">
 	<head>
 		<!-- TITLE-->
-		<title>قالب شرکتی تک صفحه ای | نت کپی</title>
+		<title>{% block title-meta %}None{% endblock %}</title>
 		<!-- FAV ICON -->
 		<link rel="shortcut icon" href="{% static 'images/favicon.ico' %}" type="text/css" />
 		<meta charset="UTF-8">
@@ -56,17 +56,13 @@
 						<a class="navbar-brand sticky-logo" href="{% url 'home' %}"><img class="img-responsive" src="{% static 'images/logo.png' %}" alt="Logo" /></a>
 					</div>
 					<!-- Collect the nav links, forms, and other content for toggling -->
-					<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-						<ul class="nav navbar-nav pull-right">
-							<li class="active"><a href="#home">خانه</a></li>
-							<li><a href="#about">درباره ما</a></li>
-							<li><a href="#service">سرویس ها</a></li>
-							<li><a href="#portfolio">نمونه کار ها</a></li>
-							<li><a href="#plans">قیمت ها</a></li>
-							<li><a href="#blog">وبلاگ</a></li>
-							<li><a href="#contact">تماس با ما</a></li>
-						</ul>
-					</div>
+                    {% block navbar %}
+                        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                            <ul class="nav navbar-nav pull-right">
+                                <li><a href="javascript:history.back();">بازگشت ← </a></li>
+                            </ul>
+                        </div>
+                    {% endblock %}
 					<!-- /.navbar-collapse -->
 				</div>
 				<!-- /.container-fluid -->

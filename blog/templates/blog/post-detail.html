@@ -1,5 +1,6 @@
 {% extends 'blog/parent/base.html' %}
 {% load static %}
+{% block title-meta %}پست ها | {{ obj.title }}{% endblock %}
 {% block main_content %}
     <!-- Who we are -->
 <section>
@@ -12,12 +13,18 @@
                         <h3 class="under-line">{{ obj.title }}</h3>
                     </div>
                     <p>
-                      {{ obj.body }}
+                      {{ obj.body | linebreaks }}
                     </p>
                 </div>
             </div>
-            <div class="col-md-6 hidden-sm hidden-xs media">
-               <img alt="{{ obj }}" src="{{ obj.image.url }}" class="img-responsive post-image" />
+            <div class="col-md-6 hidden-sm hidden-xs media post-image">
+               <img alt="{{ obj.title }}" src="{{ obj.image.url }}" class="img-responsive post-image-detail"/>
+                {% if obj.additional_image %}
+                   <img alt="{{ obj.title }}" src="{{ obj.additional_image.url }}" class="img-responsive post-image-detail"/>
+                {% endif %}
+                {% if obj.additional_image_2 %}
+                   <img alt="{{ obj.title }}" src="{{ obj.additional_image_2.url }}" class="img-responsive post-image-detail"/>
+                {% endif %}
             </div>
         </div>
     </div>
