@@ -14,7 +14,7 @@ class HomePageView(ListView):
 class PostListView(ListView):
     template_name = 'blog/post-list.html'
     queryset  = Post.objects.filter(status='PB')
-    paginate_by = 3
+    paginate_by = 1
 
 
 class PostDetailView(DetailView):

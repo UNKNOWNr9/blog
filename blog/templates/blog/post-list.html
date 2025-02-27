@@ -49,11 +49,14 @@
     {% block pagination %}
         {% if is_paginated %}
             <div class="pagination">
-                {% if page_obj.has_next %}
-                    <a class="pagination-btn btn btn-default btn-xl btn-normal" href="?page={{ page_obj.next_page_number }}">بعدی</a>
-                {% endif %}
                 {% if page_obj.has_previous%}
                     <a class="pagination-btn btn btn-default btn-xl btn-normal" href="?page={{ page_obj.previous_page_number  }}">قبلی</a>
+                {% endif %}
+                {% for page_number in paginator.page_range %}
+                    <a class="pagination-btn btn btn-default btn-xl btn-normal {% if page_obj.number == page_number %} active {% endif %}" href="?page={{ page_number }}">{{ page_number }}</a>
+                {% endfor %}
+                {% if page_obj.has_next %}
+                    <a class="pagination-btn btn btn-default btn-xl btn-normal" href="?page={{ page_obj.next_page_number }}">بعدی</a>
                 {% endif %}
             </div>
         {% endif %}
